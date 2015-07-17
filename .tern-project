@@ -1,0 +1,9 @@
+{
+  "libs": [
+    "jquery"
+  ],
+  "plugins": {
+    "node": {},
+    "complete_strings": {}
+  }
+}
