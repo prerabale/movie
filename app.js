@@ -4,7 +4,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require( 'mongoose' );
+var Movie = require( './models/movie.js' );
 
+mongoose.connect( 'mongodb://127.0.0.1:27017/movie' );
 
 var app = express();
 
@@ -30,33 +33,14 @@ app.get( '/', function( req, res ){
 });
 */
 app.get( '/', function( req, res ){
-  res.render('index',{
-    title: 'Movie 首页',
-    movies: [{
-    title: '机械战警',
-    _id: 1,
-    poster: 'http://r3.ykimg.com/05160000530EEB63675839160D0B79D5'
-    },{
-    title: '机械战警',
-    _id: 2,
-    poster: 'http://r3.ykimg.com/05160000530EEB63675839160D0B79D5'
-    },{
-    title: '机械战警',
-    _id: 3,
-    poster: 'http://r3.ykimg.com/05160000530EEB63675839160D0B79D5'
-    },{
-    title: '机械战警',
-    _id: 4,
-    poster: 'http://r3.ykimg.com/05160000530EEB63675839160D0B79D5'
-    },{
-    title: '机械战警',
-    _id: 5,
-    poster: 'http://r3.ykimg.com/05160000530EEB63675839160D0B79D5'
-    },{
-    title: '机械战警',
-    _id: 6,
-    poster: 'http://r3.ykimg.com/05160000530EEB63675839160D0B79D5'
-    }]
+  Movie.fetch( function( err, movies ){
+    if( err ){
+      console.log( 'err :', err );
+    }
+    res.render('index',{
+      title: 'Movie 首页',
+      movies: movies
+    });
   });
 });
 app.get( '/movie/:id', function( req, res ){
