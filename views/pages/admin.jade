@@ -3,32 +3,39 @@ extends ../layout
 block content
   .container
     .row
-      form.form-horizontal(menthod="post", action="/movie/admin")
+      form.form-horizontal(menthod="post", action="/admin/movie/new")
         .form-group
-          label.col-sm-3.control-label(for="inputTitle") 电影名字
+          label.col-sm-2.control-label(for="inputTitle") 电影名字
           .col-sm-10
             input#inputTitle.form-control(type="text", name="movie[title]", value="#{movie.title}")
         .form-group
-          label.col-sm-3.control-label(for="inputTitle") 导演
+          label.col-sm-2.control-label(for="inputTitle") 导演
           .col-sm-10
             input#inputTitle.form-control(type="text", name="movie[doctor]", value="#{movie.doctor}")
         .form-group
-          label.col-sm-3.control-label(for="inputTitle") 国家
+          label.col-sm-2.control-label(for="inputTitle") 国家
           .col-sm-10
             input#inputTitle.form-control(type="text", name="movie[country]", value="#{movie.country}")
         .form-group
-          label.col-sm-3.control-label(for="inputTitle") 语言
+          label.col-sm-2.control-label(for="inputTitle") 语言
           .col-sm-10
             input#inputTitle.form-control(type="text", name="movie[language]", value="#{movie.language}")
         .form-group
-          label.col-sm-3.control-label(for="inputTitle") 上映年份
+          label.col-sm-2.control-label(for="inputTitle") 上映年份
           .col-sm-10
             input#inputTitle.form-control(type="text", name="movie[year]", value="#{movie.year}")
         .form-group
-          label.col-sm-3.control-label(for="inputTitle") 简介
+          label.col-sm-2.control-label(for="inputTitle") 简介
           .col-sm-10
             input#inputTitle.form-control(type="text", name="movie[summary]", value="#{movie.summary}")
         .form-group
-          label.col-sm-3.control-label(for="inputTitle") 海报地址
+          label.col-sm-2.control-label(for="inputTitle") 海报地址
           .col-sm-10
             input#inputTitle.form-control(type="text", name="movie[poster]", value="#{movie.poster}")
+        .form-group
+          label.col-sm-2.control-label(for="inputTitle") flash地址
+          .col-sm-10
+            input#inputTitle.form-control(type="text", name="movie[poster]", value="#{movie.flash}")
+        .form-group
+          .col-sm-offset-2.col-sm-10
+          button.btn.btn-default(type="submit") 录入
